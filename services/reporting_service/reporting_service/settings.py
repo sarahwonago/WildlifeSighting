@@ -15,7 +15,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", "").split(",")
 
 
 # Application definition
@@ -139,3 +139,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
+
+# settings.py
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Wildlife Sighting Report Service',
+    'DESCRIPTION': 'Manage and resolve wildlife reports.',
+    'VERSION': '1.0.0',
+}
+
