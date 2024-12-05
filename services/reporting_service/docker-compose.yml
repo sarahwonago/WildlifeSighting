@@ -1,0 +1,10 @@
+
+services:
+  web:
+    build: ./services/reporting_service/
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./services/reporting_service/:/usr/src/app  # Mounts the current directory into the container
+    ports:
+      - "8000:8000"
+    
